@@ -179,7 +179,9 @@ COMPONENTS
 
 -Just because you change some variables React will not re-evaluate the component, we have to use USESTATE.
 
--USESTATE is a REACT hook. All hooks should be called inside the component functions.
+-React Hooks are functions that let us hook into the React state and lifecycle features from function components.
+
+-USESTATE is a REACT hook. All hooks should be called inside the function component .
 If you have data which might change and where changes to change data should be reflected on UI then we need STATE because regular variable will not do the trick with STATE however you can set and change the values and when you use STATE REACT will re-evaluate the component function and jsx codes AGAIN.
 
 -It returns an ARRAY. The first element is current variable itself and the second element is the updating function.
@@ -206,3 +208,42 @@ When we use the useState and call the updating function coming from the useState
 **Statefull/Smart Component** The opposite.
 
 -   You can assign JSX code to a variable.
+
+------ React.fragment and <> ------
+
+-To prevent to create a div soup, we can use React.fragment or <>.
+
+-They basically create an empty wrapper. ( instead of the helpers)
+
+-React.fragment always works but <> this one should be supported by the setup of your project.
+
+------ Portal - ReactDOM.createPortal() ------
+
+------ REFS ------
+
+-With refs we create a connection between our HMTL which is rendered in the end (return) code and JS code.
+
+-useRef is only usable inside of a functional component like the other hooks.
+
+-   You can connect to every html element by using ref prop -use like key prop-, mostly you will do it for inputs.
+
+-   Object output will have always be there with a current props and that current prop and this will holds the actual value that ref is connected with.
+
+-   WHAT BEING STORE IS IS AN ACTUAL DOM NODE, NOT A VALUE, WHICH YOU CAN MANIPULATE.
+
+-For the current project, you can get rid of your useState and value structure because you are using the ref now which gives you the current value inside of an object that is an actual DOM NODE.
+
+-   When you want to only read a value and not plan to change it, you can use REF otherwise you can use useState and value structure.
+    If you use ref in a case that using useState is more reasonable then you have to manipulate DOM without REACT which is an edge case.
+
+------ CONTROLLED AND UNCONTROLLED COMPONENTS ------
+
+-   if we access to a value by using ref then we have an unctolled component because their internal state is not controlled by react because we are using regular DOM API not a react. When you use useState then the components are controlled becuase their internal state is controlled by React.
+
+------ useEffect Hook ------ (remember the how react works/ re-runs the function whenever the state is changed)
+
+-   Another fucntion you can run insedie of your component function that is called with 2 argunments.
+
+-   First ARGUMENT: A function that should be executed after every component evaluation if the specified dependency changed.
+
+-   Second ARGUMENT: the specified dependency - an array full of dependencies.
