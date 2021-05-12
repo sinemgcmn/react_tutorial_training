@@ -1,0 +1,33 @@
+import React, { useState } from "react";
+import AddUserForm from "./components/AddUserForm";
+import UserList from "./components/UserList";
+
+const App = (props) => {
+    const [nameAndAge, setAllInfo] = useState("");
+
+    const onSaveUserInfoHandler = (enteredUserInfo) => {
+        console.log("enteredUserInfo", enteredUserInfo);
+        const userInfo = {
+            ...enteredUserInfo,
+            id: Math.random().toString(),
+        };
+        setAllInfo((userInfo) => {
+            return [enteredUserInfo, ...userInfo];
+        });
+        // return userInfo;
+
+        console.log("app-userInfo", userInfo);
+        console.log("app-enteredUserInfo", enteredUserInfo);
+    };
+
+    console.log("setall", nameAndAge);
+
+    return (
+        <div>
+            <AddUserForm onSaveUserInfo={onSaveUserInfoHandler} />;
+            <UserList info={nameAndAge} />;
+        </div>
+    );
+};
+
+export default App;
